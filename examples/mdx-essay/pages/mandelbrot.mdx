@@ -1,0 +1,12 @@
+import { Layout } from "../components/layout";
+import { createState, Observe } from "mdx-state";
+
+export const example = createState({ iterations: 0 });
+
+export default Layout;
+
+# Mandelbrot
+
+<Observe state={example}>
+	{(state) => <>The number of iterations is {example.iterations}.</>}
+</Observe>

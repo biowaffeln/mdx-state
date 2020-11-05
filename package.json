@@ -1,0 +1,37 @@
+{
+	"name": "mdx-state",
+	"version": "1.0.0",
+	"description": "Manage state in MDX",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist/*"
+	],
+	"scripts": {
+		"prepublish": "tsc"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^4.0.5",
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0",
+		"@types/react": "^16.9.53"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0"
+	},
+	"prettier": {
+		"useTabs": true
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/biowaffeln/mdx-state.git"
+	},
+	"bugs": {
+		"url": "https://github.com/biowaffeln/mdx-state/issues"
+	},
+	"homepage": "https://github.com/biowaffeln/mdx-state#readme"
+}
