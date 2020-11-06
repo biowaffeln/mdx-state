@@ -1,11 +1,11 @@
 {
 	"name": "mdx-state",
 	"version": "1.0.0",
-	"description": "Manage state in MDX",
+	"description": "Utilities to manage global state in MDX Document.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
-		"dist/*"
+		"dist"
 	],
 	"scripts": {
 		"prepublish": "tsc"
@@ -22,9 +22,6 @@
 	"peerDependencies": {
 		"react": "^16.8.0",
 		"react-dom": "^16.8.0"
-	},
-	"prettier": {
-		"useTabs": true
 	},
 	"repository": {
 		"type": "git",
