@@ -1,5 +1,6 @@
 import { State } from "./state";
-import React, { ChangeEvent, HTMLAttributes, useEffect, useState } from "react";
+import * as React from "react";
+import { ChangeEvent, HTMLAttributes, useEffect, useState } from "react";
 
 // ---  useObserve Hook  --- //
 
