@@ -10,9 +10,11 @@
 		"@mdx-js/loader": "^2.0.0-next.8",
 		"@mdx-js/mdx": "^2.0.0-next.8",
 		"@tailwindcss/typography": "^0.2.0",
+		"mdx-state": "0.0.2",
 		"next": "latest",
 		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"react-dom": "^16.13.1",
+		"react-katex": "^2.0.2"
 	},
 	"devDependencies": {
 		"@next/mdx": "^10.0.1",

@@ -6,7 +6,7 @@ module.exports = {
 		standardFontWeights: true,
 	},
 	experimental: {
-		applyComplexClasses: true,
+		extendedSpacingScale: true,
 	},
 	purge: [
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
