@@ -68,7 +68,6 @@ export const Complex2D = ({ x, y, onChange, ...rest }) => {
 	return (
 		<canvas
 			ref={canvasRef}
-			className="shadow w-1/2"
 			width="400"
 			height="400"
 			onMouseMove={handleMouseMove}

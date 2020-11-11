@@ -28,7 +28,15 @@ const tooLarge = ([x, y]: Complex) =>
 	isNaN(x) ||
 	isNaN(y);
 
-export const Iterate2D = ({ x, y, iterations, onChange, ...rest }) => {
+export const Iterate2D = ({
+	x,
+	y,
+	iterations,
+	lineColor = "black",
+	lineWidth = 1,
+	onChange,
+	...rest
+}) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
 	useEffect(() => {
@@ -41,6 +49,8 @@ export const Iterate2D = ({ x, y, iterations, onChange, ...rest }) => {
 		// start drawing
 		ctx.save();
 		ctx.translate(canvas.width / 2, canvas.height / 2);
+
+		ctx.translate(0.5, 0.5);
 
 		// draw coordinate lines
 		ctx.save();
@@ -75,6 +85,8 @@ export const Iterate2D = ({ x, y, iterations, onChange, ...rest }) => {
 
 		// draw iterations
 		ctx.beginPath();
+		ctx.strokeStyle = lineColor;
+		ctx.lineWidth = lineWidth;
 		const nums = iterate([x, y], iterations);
 		ctx.moveTo(x * factor, y * -factor);
 		for (let i = 1; i < iterations; i++) {
@@ -84,7 +96,7 @@ export const Iterate2D = ({ x, y, iterations, onChange, ...rest }) => {
 		}
 		ctx.stroke();
 		ctx.restore();
-	}, [x, y, iterations]);
+	}, [x, y, iterations, lineColor, lineWidth]);
 
 	const handleMouseMove = (
 		e: MouseEvent<HTMLCanvasElement, globalThis.MouseEvent>
@@ -104,7 +116,6 @@ export const Iterate2D = ({ x, y, iterations, onChange, ...rest }) => {
 	return (
 		<canvas
 			ref={canvasRef}
-			className="shadow w-1/2"
 			width="400"
 			height="400"
 			onMouseMove={handleMouseMove}

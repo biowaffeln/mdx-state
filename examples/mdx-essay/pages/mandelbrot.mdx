@@ -1,6 +1,7 @@
 import { Layout } from "../components/layout";
 import { Complex2D, ComplexNumber } from "../components/complex";
 import { Iterate2D } from "../components/iterations";
+import { Mandelbrot } from "../components/mandelbrot";
 import { createState, Observe, Input } from "mdx-state";
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
@@ -74,3 +75,14 @@ As you play around with the value, you will notice that some of the values seem 
 }}>(this one for an example)</button>.
 Other values seem to shoot off into infinity after a while.
 
+<Observe state={example2}>
+{state => <div className="grid">
+<Mandelbrot iterations={example2.iterations} className="col-span-full row-span-full" />
+<Iterate2D {...state} lineColor="#999" lineWidth={2} className="col-span-full row-span-full"
+		onChange={({ x, y }) => {
+			example2.x = x;
+			example2.y = y;
+		}}
+ />
+ </div>}
+ </Observe>
