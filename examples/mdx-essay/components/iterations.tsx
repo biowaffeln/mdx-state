@@ -1,5 +1,4 @@
 import { MouseEvent, useEffect, useRef } from "react";
-import { InlineMath } from "react-katex";
 
 type Complex = [number, number];
 
