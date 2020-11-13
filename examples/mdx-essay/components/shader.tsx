@@ -1,6 +1,14 @@
 // inspired by https://github.com/signal-noise/react-shader-canvas
-import React, { useEffect, useRef } from "react";
+import {
+	FC,
+	forwardRef,
+	HTMLProps,
+	MutableRefObject,
+	useEffect,
+	useRef,
+} from "react";
 import GLSLCanvas from "glslCanvas";
+import mergeRefs from "react-merge-refs";
 
 // see uniform parser for reference:
 // https://github.com/patriciogonzalezvivo/glslCanvas/blob/master/src/gl/gl.js#L182
@@ -17,16 +25,18 @@ type Uniform =
 
 type Uniforms = { [key: string]: Uniform };
 
-type Props = {
+type ShaderProps = {
 	fragShader: string;
 	vertShader?: string;
 	uniforms?: Uniforms;
-};
+	forwardedRef?: MutableRefObject<HTMLCanvasElement>;
+} & HTMLProps<HTMLCanvasElement>;
 
-export const Shader: React.FC<Props & React.HTMLProps<HTMLCanvasElement>> = ({
+export const Shader: FC<ShaderProps> = ({
 	fragShader,
 	vertShader,
 	uniforms,
+	forwardedRef,
 	...rest
 }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -46,5 +56,5 @@ export const Shader: React.FC<Props & React.HTMLProps<HTMLCanvasElement>> = ({
 		sandboxRef.current.setUniforms(uniforms);
 	}, [uniforms]);
 
-	return <canvas ref={canvasRef} {...rest} />;
+	return <canvas {...rest} ref={mergeRefs([forwardedRef, canvasRef])} />;
 };

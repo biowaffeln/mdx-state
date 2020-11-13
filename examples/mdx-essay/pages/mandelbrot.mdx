@@ -2,9 +2,11 @@ import { Layout } from "../components/layout";
 import { Complex2D, ComplexNumber } from "../components/complex";
 import { Iterate2D } from "../components/iterations";
 import { Mandelbrot } from "../components/mandelbrot";
+import { MandelbrotInteractive } from "../components/mandelbrot-interactive";
 import { createState, Observe, Input } from "mdx-state";
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
+import "../components/node_modules/interactive.css"
 
 export default Layout;
 
@@ -75,14 +77,29 @@ As you play around with the value, you will notice that some of the values seem 
 }}>(this one for an example)</button>.
 Other values seem to shoot off into infinity after a while.
 
-<Observe state={example2}>
-{state => <div className="grid">
-<Mandelbrot iterations={example2.iterations} className="col-span-full row-span-full" />
-<Iterate2D {...state} lineColor="#999" lineWidth={2} className="col-span-full row-span-full"
-		onChange={({ x, y }) => {
-			example2.x = x;
-			example2.y = y;
-		}}
- />
- </div>}
- </Observe>
+export const example3 = createState({ x: -0.5, y: 0.5, iterations: 15 });
+
+<Observe state={example3}>
+{state => <div className="flex gap-10">
+	<div className="grid">
+		<Mandelbrot iterations={example3.iterations} className="col-span-full row-span-full" />
+		<Iterate2D {...state} lineColor="#999" lineWidth={2} className="col-span-full row-span-full"
+				onChange={({ x, y }) => {
+					example3.x = x;
+					example3.y = y;
+				}}
+		 />
+	</div>
+	<div className="text-base flex items-center">
+	<p>Finally, a diagram of the Mandelbrot Set after {state.iterations} number of iterations<br/>
+		<Input type="range" min="1" max="100" state={example3} name="iterations" /> 
+	</p>
+	</div>
+</div>}
+</Observe>
+
+The more we increase the number of iterations, the closer we get to the true form of the Mandelbrot Set.
+
+Lastly, we get the fully interactive widget of the mandelbrot, have fun:
+
+<MandelbrotInteractive />

@@ -14,7 +14,8 @@
 		"next": "latest",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-katex": "^2.0.2"
+		"react-katex": "^2.0.2",
+		"react-merge-refs": "^1.1.0"
 	},
 	"devDependencies": {
 		"@next/mdx": "^10.0.1",
