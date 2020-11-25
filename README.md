@@ -12,11 +12,11 @@ npm install mdx-state
 
 ## Why?
 
-Managing state in MDX documents is complicated; the usual state mananagement solutions, such as React's Hooks are not available inside  
+Managing state in MDX documents is complicated; the usual state mananagement solutions such as React's Hooks are unfortunately not available inside MDX. mdx-state tries to solve this problem by providing the simplest API to managing state within MDX documents.
 
 ## Getting Started
 
-Here is an example of implementing a counter mdx-state: 
+Here is an example of implementing a counter mdx-state:
 
 ```jsx
 import { createState, Observe } from "mdx-state";
@@ -38,12 +38,13 @@ export const counter = createState({ count: 0 });
 <button onClick={() => counter.count++}>increase count!</button>
 
 ```
-⚠️ createState uses the [Proxy API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) internally and cannot be used in obsolete Browsers like IE11 without polyfills.  
+
+⚠️ createState uses the [Proxy API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) internally and cannot be used in obsolete Browsers like IE11 without polyfills.
 
 If you want to mutate state in more complex ways, mdx-state provides an `Input` component can help you with that. For example, let's manipulate our counter with a range slider:
 
 ```jsx
-import { createState, Observe, Input } from "mdx-state"; 
+import { createState, Observe, Input } from "mdx-state";
 
 # Counter Example
 
@@ -59,13 +60,19 @@ import { createState, Observe, Input } from "mdx-state";
 
 Whenever the input value changes, the text will update correctly!
 
-## API 
+## API
 
 ### `createState`
 
+Takes an object and returns a proxy object that can notify `Observe` and `Input` about when it is changed.
+
 ### `Observe`
 
+Takes a `state` prop that has to be produced by the `createState` function, and re-renders every time the state is changed. Expects a function as a child that gets called with the new state.
+
 ### `Input`
+
+Takes two props, a `state` that comes from the `createState` function, and a `name` that corresponds to the name of the key that the input should mutate.
 
 ## Acknowledgements
 
