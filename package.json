@@ -30,8 +30,5 @@
 	"bugs": {
 		"url": "https://github.com/biowaffeln/mdx-state/issues"
 	},
-	"homepage": "https://github.com/biowaffeln/mdx-state#readme",
-	"dependencies": {
-		"glslCanvas": "^0.1.7"
-	}
+	"homepage": "https://github.com/biowaffeln/mdx-state#readme"
 }
