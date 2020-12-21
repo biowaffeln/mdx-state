@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="mdx-state.svg" alt="mdx-state" width="350" style="margin: 50px 0;" />
+<p align="center" >
+  <img src="mdx-state.svg" alt="mdx-state" width="350" height="200" />
 </p>
 
 A simple state managment solution for MDX Documents.
