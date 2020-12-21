@@ -1,4 +1,6 @@
-# MDX-State
+<p align="center">
+  <img src="logo.png" alt="mdx-state" width="512" />
+</p>
 
 A simple state managment solution for MDX Documents.
 
